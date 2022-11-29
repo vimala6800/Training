@@ -1,0 +1,47 @@
+<h1>Employee Template FOrm</h1>
+
+<form #signup="ngForm" (ngSubmit)="register(signup)">
+    <label>Employee Code</label><br>
+    <input type="code" name="code" id="code" ngModel required #code="ngModel"><br>
+    <p *ngIf="code.touched && !code.valid" [ngStyle]="{'color':'red'}">Name is Mandatory</p>
+    <label>Employee Name</label><br>
+    <input type="name" name="name" id="name" ngModel required ><br>
+    <label>Department</label><br>
+    <input type="dept" name="dept" id="dept" ngModel required><br>
+    <label>Designation</label><br>
+    <input type="desg" name="desg" id="desg" ngModel required><br>
+    <label>salary</label><br>
+    <input type="sal" name="sal" id="sal" ngModel required><br>
+    <input type="submit" value="Submit">
+    <input type="submit" value="Update">
+    
+   
+</form>
+<br>
+
+<div *ngIf="regEmp.length>0">
+<h1>Registered Users</h1>
+<table>
+    <tr>
+        <th>Employee Code</th>
+        <th>Employee Name</th>
+        <th>Department</th>
+        <th>Designation</th>
+        <th>Salary</th>
+    </tr>
+
+    <tr *ngFor="let employee of regEmp">
+        <td>{{employee.code}}</td>
+        <td>{{employee.name}}</td>
+        <td>{{employee.dept}}</td>
+        <td>{{employee.desg}}</td>
+         <td>{{employee.sal}}</td>
+         <td>
+            <button type="button" value="Sign Up">Edit</button>
+         <button id="remove" (click)="onDelete(employee.code)">Delete</button>
+        </td>
+
+    </tr>
+
+</table>
+</div>

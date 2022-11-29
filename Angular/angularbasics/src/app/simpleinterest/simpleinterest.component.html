@@ -1,0 +1,9 @@
+<h1>Simple Interest</h1>
+<label>Enter Principle Amount</label>
+<input type="text" [(ngModel)]="principle" value="principle"/><br>
+<label>Enter Rate if Interest</label>
+<input type="text" [(ngModel)]="rate" value="rate"/><br>
+<label>Enter Time</label>
+<input type="text" [(ngModel)]="time" value="time"/><br>
+<button (click)="Calculate()">Calculate</button>
+<h1>Simple Interest is {{si}}</h1>
